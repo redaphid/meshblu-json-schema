@@ -1,0 +1,41 @@
+{
+  "id": "http://meshblu.octoblu.com/messages-1-0.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Schema for Meshblu messages",
+  "type": "object",
+  "required": [
+    "metadata"
+  ],
+  "properties": {
+    "metadata": {
+      "additionalProperties": true,
+      "type": "object",
+      "required": [
+        "action"
+      ],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "register",
+            "unregister",
+            "authenticate",
+            "broadcast",
+            "configure",
+            "get-configuration",
+            "subscribe",
+            "unsubscribe"
+          ]
+        },
+        "auth": {
+          "type": "object",
+          "required": ["uuid", "token"],
+          "properties": {
+            "uuid": {"type": "string"},
+            "token": {"type": "string"}
+          }
+        }
+      }
+    }
+  }
+}
